@@ -12,8 +12,7 @@ public class AddressBookJDBC {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/address_book_service", "root", "Swapnil123");
             System.out.println("Connection Done...");
             Statement statement = connection.createStatement();
-            statement.execute("UPDATE  address_book SET firstName='Suresh' WHERE lastName='Kumar'");
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM address_book");
+            ResultSet resultSet = statement.executeQuery("select * from address_book order by lastName");
             while (resultSet.next()) {
                 System.out.println(resultSet.getString(1)
                         + " | " + resultSet.getString(2)
