@@ -12,7 +12,8 @@ public class AddressBookJDBC {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/address_book_service", "root", "Swapnil123");
             System.out.println("Connection Done...");
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select count(contactType) from address_book where contactType='Family'");
+            statement.execute("INSERT INTO address_book VALUES('Pushkar','Raj','vashi','vashi','Maharashtra','pushkar@gamil.com','515701','1233456','PR','Business')");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM address_book  ");
             while (resultSet.next()) {
                 System.out.println(resultSet.getString(1)
                         + " | " + resultSet.getString(2)
