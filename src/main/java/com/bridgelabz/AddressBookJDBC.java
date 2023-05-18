@@ -12,7 +12,7 @@ public class AddressBookJDBC {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/address_book_service", "root", "Swapnil123");
             System.out.println("Connection Done...");
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from address_book order by lastName");
+            ResultSet resultSet = statement.executeQuery("select count(contactType) from address_book where contactType='Family'");
             while (resultSet.next()) {
                 System.out.println(resultSet.getString(1)
                         + " | " + resultSet.getString(2)
